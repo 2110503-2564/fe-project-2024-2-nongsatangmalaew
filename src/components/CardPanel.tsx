@@ -44,7 +44,7 @@ export default function CardPanel() {
                 {
                     mockCarRepo.map((carItem) => (
                         <Link href={`/car/${carItem.cid}`} className="w-1/5">
-                            <Card carName={carItem.model} imgSrc={carItem.image} onRatingChange={(car : string, rate : number) => dispatchCompare({type : 'add', carName : car, rating : rate})}/>
+                            <Card carName={carItem.name} imgSrc={carItem.image} onRatingChange={(car : string, rate : number) => dispatchCompare({type : 'add', carName : car, rating : rate})}/>
                         </Link>
                     ))
                 }
