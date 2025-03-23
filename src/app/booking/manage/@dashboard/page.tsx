@@ -1,10 +1,51 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
 import getUserProfile from "@/libs/getUserProfile";
-
+import Car from "@/db/models/Car";
+import { dbConnect } from "@/db/dbConnect";
+import { revalidateTag } from "next/cache";
+import { redirect } from "next/navigation";
 
 export default async function DashboardPage() {
   
+  const addCar = async  (addCarForm:FormData)=>{
+    "use server" 
+    const model = addCarForm.get("model")
+    const description = addCarForm.get("desc")
+    console.log("Description: ", description)
+    // const desc = addCarForm.get("desc")
+    const picture = addCarForm.get("picture")
+    const seats = Number(addCarForm.get("seats"))
+    const doors = Number(addCarForm.get("doors"))
+    const largebags = Number(addCarForm.get("largebags"))
+    const smallbags = Number(addCarForm.get("smallbags"))
+    const automatic = true 
+    const dayRate = Number(addCarForm.get("dayRate"))
+  
+    try{
+      await dbConnect()
+      const car = await Car.create( {
+        "model": model,
+        "description": description,
+        "picture": picture,
+        "seats": seats,
+        "doors": doors,
+        "largebags": largebags,
+        "smallbags": smallbags,
+        "automatic": automatic,
+        "dayRate": dayRate
+
+      })
+    }
+    catch(error){
+      console.log(error)
+    }
+
+    revalidateTag("cars")
+    console.log("Redirecting to /car")
+    redirect("/car")
+  }
+
   const session = await getServerSession(authOptions);
   if (!session || !session.user.token) return null;
 
@@ -21,7 +62,7 @@ export default async function DashboardPage() {
         </tbody> </table>
         {
           (profile.data.role == "admin")?
-          <form>
+          <form action={addCar}>
             <div className="text-xl text-blue-700">Create Car Model</div>
             <div className="flex items-center w-1/2 my-2">
               <label className="w-auto block text-gray-700 pr-4" htmlFor='model' >

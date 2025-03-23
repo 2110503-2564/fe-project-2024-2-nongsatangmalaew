@@ -13,7 +13,9 @@ export default async function CarCatalog({CarsJson}: {CarsJson:Promise<CarsJson>
         <div style={{margin: "20px", display: "flex", flexDirection:"row", flexWrap:"wrap", justifyContent:"space-around", alignContent:"space-around"}}>
             {
                 CarsJsonReady.data.map((CarItem:CarItem) => (
-                    <Link href={`/car/${CarItem.id}`} className="w-1/5">
+                    <Link href={`/car/${CarItem.id}`} 
+                    className="w-[100%] sm:w-[50%] md:w-[30%] lg:w-[25%] 
+                    p-2 sm:p-4 md:p-4 lg:p-8">
                         <Card carName={CarItem.model} imgSrc={CarItem.picture}/>
                     </Link>
                 ))
