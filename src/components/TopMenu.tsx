@@ -10,23 +10,20 @@ export default async function TopMenu() {
 
   return (
     <div className={styles.menucontainer}>
-      <TopMenuItem title="Select car" pageRef="/car" />
+    <Image
+      src={"/img/logo.png"}
+      className={styles.logoimg}
+      alt="logo"
+      width={0}
+      height={0}
+      sizes="100vh"
+    />
+      <TopMenuItem title="Select Car" pageRef="/car" />
       <TopMenuItem title="Booking" pageRef="/booking" />
-      <Image
-        src={"/img/logo.png"}
-        className={styles.logoimg}
-        alt="logo"
-        width={0}
-        height={0}
-        sizes="100vh"
-      />
-      {/* <TopMenuItem title='Reservations' pageRef='/reservations'/>
-        <TopMenuItem title='About' pageRef='/about'/> */}
 
-      <div>
-        asdfsadf
-      </div>
-      <div className="flex flex-row absolute left-0 h-full">
+      
+      <div className="flex flex-row absolute right-0 h-full">
+        <TopMenuItem title="Cart" pageRef="/cart" />
         {session ?  <Link href="/api/auth/signout">
             <div className="flex items-center  h-full px-2 text-cyan-600 text-sm">
               Sign-Out of {session.user?.name} </div> </Link>
@@ -34,7 +31,6 @@ export default async function TopMenu() {
             <div className="flex items-center  h-full px-2 text-cyan-600 text-sm">
               Sign-In </div> </Link>
         }
-      <TopMenuItem title="Cart" pageRef="/cart" />
       </div>
     </div>
   );

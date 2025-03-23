@@ -33,20 +33,20 @@ export default function Banner() {
 
       <div className={styles.bannerText}>
         <h1 className="text-4xl font-medium">
-          where every event finds its Car
+          where every event finds its car
         </h1>
         <h3 className="text-xl font-serif">
-          Finding the perfect Car has never been easier. Whether it's a
-          wedding corporate event, or private party, we connecting people to the
+          Renting the perfect car has never been easier. Whether it's a
+          wedding corporate event, or private party, we are always connecting people to the
           perfect place.
         </h3>
       </div>
       {
         session?<div className="z-30 absolute top-5 right-10 font-semibold text-cyan-800 text-xl">Welcome {session.user?.name}</div>:null
       }
-      <button className='bg-white text-cyan-600 border border-cyan-600
+      <button className='bg-white text-blue-900 border border-blue-900
       font-semibold py-2 px-2 m-5 rounded z-30 absolute bottom-0 right-0 
-      hover:bg-cyan-600 hover:text-white hover:boder-transparent' onClick={(e) => { e.stopPropagation(); router.push('/car') }}>
+      hover:bg-blue-900 hover:text-white hover:boder-transparent' onClick={(e) => { e.stopPropagation(); router.push('/car') }}>
         Select Your Car
       </button>
     </div>

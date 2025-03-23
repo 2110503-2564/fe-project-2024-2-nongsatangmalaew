@@ -1,0 +1,19 @@
+.menucontainer {
+    height: 50px;
+    background-color: #0a2351;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: auto;
+
+    z-index: 30;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    justify-content: center; 
+    color: lightgray; 
+}
