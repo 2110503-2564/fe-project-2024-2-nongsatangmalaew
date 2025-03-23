@@ -18,8 +18,11 @@ export default async function TopMenu() {
       height={0}
       sizes="100vh"
     />
+
       <TopMenuItem title="Select Car" pageRef="/car" />
       <TopMenuItem title="Booking" pageRef="/booking" />
+      <TopMenuItem title="Home" pageRef="/" />
+
 
       
       <div className="flex flex-row absolute right-0 h-full">
