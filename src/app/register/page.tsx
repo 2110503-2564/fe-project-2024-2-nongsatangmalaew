@@ -35,6 +35,7 @@ export default function RegisterForm() {
       body: JSON.stringify(form),
     });
 
+
     const data = await res.json();
 
     if (res.ok) {
