@@ -3,6 +3,7 @@ import React, { Suspense } from "react";
 import { LinearProgress } from "@mui/material";
 import CarCatalog from "@/components/CarCatalog";
 import CardPanel from "@/components/CardPanel";
+import { CarsJson } from "../../../../interface";
 
 export default function Car() {
   const carsPromise = getCars();

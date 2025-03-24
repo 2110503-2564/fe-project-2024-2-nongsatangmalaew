@@ -43,7 +43,7 @@ export default function RegisterForm() {
       setForm({ name: "", email: "", password: "", telephone_number: "" });
 
       // Redirect ไปหน้า login หรือ home
-      setTimeout(() => router.push("/api/auth/signin"), 2000);
+      setTimeout(() => router.push("/api/auth/signin"), 300);
     } else {
       setMessage(data.error || "Registration failed");
     }
