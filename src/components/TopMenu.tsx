@@ -20,7 +20,6 @@ export default async function TopMenu() {
     />
 
       <TopMenuItem title="Select Car" pageRef="/car" />
-      <TopMenuItem title="Booking" pageRef="/booking" />
       <TopMenuItem title="Home" pageRef="/" />
 
 

@@ -18,6 +18,7 @@ export default function Booking() {
 
     const [pickupDate, setPickupDate] = useState<Dayjs | null>(null);
     const [pickupLocation, setPickupLocation] = useState<string>("bloom");
+    const [pickupProvider, setProvider] = useState<string>("Tahto Naju");
     const [returnDate, setReturnDate] = useState<Dayjs | null>(null);
     const [returnLocation, setReturnLocation] = useState<string>("bloom");
 
@@ -44,7 +45,8 @@ export default function Booking() {
             pickupDate: formattedPickupDate,
             pickupLocation,
             returnDate: formattedReturnDate,
-            returnLocation
+            returnLocation,
+            pickupProvider
         };
     
         const newItem: Partial<ReservationItem> = {

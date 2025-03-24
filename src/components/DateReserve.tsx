@@ -9,7 +9,7 @@ import {Dayjs} from "dayjs"
 export default function DateReserve({onDateChange, onLocationChange}
   :{onDateChange:Function, onLocationChange:Function}) {
   const [reserveDate, setReserveDate] = useState<Dayjs | null>(null);
-  const [location, setLocation] = useState("Bloom");
+  const [location, setLocation] = useState("Bangkok");
 
   return (
 
@@ -37,9 +37,9 @@ export default function DateReserve({onDateChange, onLocationChange}
         className="h-[2em] w-[200px]"
       >
         {/* must edit */}
-        <MenuItem value="Bloom">The Bloom Pavilion</MenuItem>
-        <MenuItem value="Spark">Spark Space</MenuItem>
-        <MenuItem value="GrandTable">The Grand Table</MenuItem>
+        <MenuItem value="Bangkok">Bangkok</MenuItem>
+        <MenuItem value="Khonkaen">Khon Kaen</MenuItem>
+        <MenuItem value="Chiangmai">Chiang Mai</MenuItem>
       </Select>
     </div>
   );

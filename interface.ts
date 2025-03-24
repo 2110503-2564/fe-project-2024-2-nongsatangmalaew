@@ -6,6 +6,7 @@ export interface ReservationItem {
   pickupLocation: string
   returnDate: string
   returnLocation: string
+  pickupProvider: string
 }
 
 // must edit
