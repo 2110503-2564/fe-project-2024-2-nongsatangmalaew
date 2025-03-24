@@ -1,8 +1,9 @@
 "use client"
 
-import { useReducer } from "react";
+import { useReducer,useState } from "react";
 import Card from "./Card";
 import Link from "next/link";
+import { CarItem,CarsJson } from "../../interface";
 
 export default function CardPanel() {
 
@@ -30,6 +31,8 @@ export default function CardPanel() {
     }
 
     const [ carList, dispatchCompare ] = useReducer(cardReducer, defaultCar);
+    const [carResponse, setCarResponse] = useState<CarsJson|null>(null)
+
 
     const mockCarRepo = [
         {cid: "001", name: "The Bloom Pavilion", image: "/img/bloom.jpg"},
@@ -38,13 +41,15 @@ export default function CardPanel() {
 
     ]
 
+    if(!carResponse) return (<p>Car Panel is Loading...</p>)
+
     return (
         <div>
             <div className="m-[20px] flex flex-row flew-wrap justify-around content-around">
                 {
-                    mockCarRepo.map((carItem) => (
-                        <Link href={`/car/${carItem.cid}`} className="w-1/5">
-                            <Card carName={carItem.name} imgSrc={carItem.image} onRatingChange={(car : string, rate : number) => dispatchCompare({type : 'add', carName : car, rating : rate})}/>
+                    carResponse.data.map((carItem:CarItem) => (
+                        <Link href={`/car/${carItem.id}`} className="w-1/5">
+                            <Card carName={carItem.name} imgSrc={carItem.picture} onRatingChange={(car : string, rate : number) => dispatchCompare({type : 'add', carName : car, rating : rate})}/>
                         </Link>
                     ))
                 }

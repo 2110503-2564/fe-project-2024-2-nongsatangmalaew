@@ -1,5 +1,5 @@
 import { CarsJson } from "../../interface";
-export default async function getCars():Promise<CarsJson>{
+export default async function getCars(){
     
     // await new Promise((resolve)=>setTimeout(resolve, 300));
 
@@ -8,5 +8,5 @@ export default async function getCars():Promise<CarsJson>{
     if(!response.ok){
         throw new Error("Failed to fetch cars");
     }
-    return await response.json() as CarsJson;
+    return await response.json() ;
 }
