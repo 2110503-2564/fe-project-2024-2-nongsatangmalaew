@@ -24,9 +24,26 @@ export const cartSlice = createSlice({
                     || (obj.returnDate !== action.payload.returnDate));
             })
             state.carItems = remainItems
+        },
+        editReservation: (state, action: PayloadAction<{ oldItem: ReservationItem; newItem: Partial<ReservationItem> }>) => {
+            const { oldItem, newItem } = action.payload;
+        
+            const existingItem = state.carItems.find(obj =>
+                obj.carModel === oldItem.carModel &&
+                obj.carId === oldItem.carId
+            );
+        
+            if (existingItem) {
+                Object.assign(existingItem, newItem); // ✅ Modify existing object in-place
+            } else {
+                console.warn("editReservation: Reservation not found!", oldItem);
+            }
         }
+        
+        
+        
     }
 })
 
-export const { addReservation, removeReservation } = cartSlice.actions
+export const { addReservation, removeReservation,editReservation } = cartSlice.actions
 export default cartSlice.reducer
