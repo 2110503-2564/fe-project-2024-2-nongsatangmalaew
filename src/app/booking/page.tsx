@@ -29,9 +29,9 @@ export default function Booking() {
     const dispatch = useDispatch<AppDispatch>()
 
     const [pickupDate, setPickupDate] = useState<Dayjs|null>(null)
-    const [pickupLocation, setPickupLocation] = useState<string>("bloom")
+    const [pickupLocation, setPickupLocation] = useState<string>("Bangkok")
     const [returnDate, setReturnDate] = useState<Dayjs|null>(null)
-    const [returnLocation, setReturnLocation] = useState<string>("bloom")
+    const [returnLocation, setReturnLocation] = useState<string>("Bangkok")
     const [pickupProvider,setProvider] = useState<string>("Tahto Naju")
 
     const makeReservation=()=>{

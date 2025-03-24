@@ -1,3 +1,5 @@
+import { StringExpression } from "mongoose"
+
 export interface ReservationItem {
   carId: string
   carModel: string
