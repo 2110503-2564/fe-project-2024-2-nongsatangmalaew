@@ -9,6 +9,7 @@ import { ReservationItem } from "../../../../interface";
 import dayjs, { Dayjs } from "dayjs";
 import { editReservation as editReservationAction } from "@/redux/features/cartSlice"; // Renamed import
 import { useSearchParams } from "next/navigation";
+import ProviderReserve from "@/components/ProviderReserve";
 
 export default function Booking() {
     const urlParams = useSearchParams();
@@ -17,10 +18,10 @@ export default function Booking() {
     const dispatch = useDispatch<AppDispatch>();
 
     const [pickupDate, setPickupDate] = useState<Dayjs | null>(null);
-    const [pickupLocation, setPickupLocation] = useState<string>("bloom");
+    const [pickupLocation, setPickupLocation] = useState<string>("Bangkok");
     const [pickupProvider, setProvider] = useState<string>("Tahto Naju");
     const [returnDate, setReturnDate] = useState<Dayjs | null>(null);
-    const [returnLocation, setReturnLocation] = useState<string>("bloom");
+    const [returnLocation, setReturnLocation] = useState<string>("Bangkok");
 
     // ✅ Rename function to avoid conflict
     const handleEditReservation = () => {
@@ -68,12 +69,18 @@ export default function Booking() {
             <div className="text-xl font-medium">Car {model}</div>
 
             <div className="text-md text-left text-gray-600">Edit the date and car that you reserved.</div>
-            <div>
-                <DateReserve onDateChange={(value: Dayjs) => setPickupDate(value)} onLocationChange={setPickupLocation} />
-            </div>
-            <div>
-                <DateReserve onDateChange={(value: Dayjs) => setReturnDate(value)} onLocationChange={setReturnLocation} />
-            </div>
+            <div><h2>Provider</h2></div>
+                        <div>
+                            <ProviderReserve onProviderChange={(value:string) => {setProvider(value)}}/>
+                        </div>
+                        <div><h2>Departure Date and Location</h2></div>
+                        <div>
+                             <DateReserve onDateChange={(value:Dayjs) => {setPickupDate(value)}} onLocationChange={(value:string) => {setPickupLocation(value)}}/>
+                         </div>
+                         <div><h2>Arrival Date and Location</h2></div>
+                        <div>
+                             <DateReserve onDateChange={(value:Dayjs) => {setReturnDate(value)}} onLocationChange={(value:string) => {setReturnLocation(value)}}/>
+                         </div>
 
             <button
                 name="Book Car"
