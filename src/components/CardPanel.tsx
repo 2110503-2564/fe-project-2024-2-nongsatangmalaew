@@ -49,7 +49,7 @@ export default function CardPanel() {
                 {
                     carResponse.data.map((carItem:CarItem) => (
                         <Link href={`/car/${carItem.id}`} className="w-1/5">
-                            <Card carName={carItem.model}  imgSrc={carItem.picture} onRatingChange={(car : string, rate : number) => dispatchCompare({type : 'add', carName : car, rating : rate})}/>
+                            <Card carName={carItem.name}  imgSrc={carItem.picture} onRatingChange={(car : string, rate : number) => dispatchCompare({type : 'add', carName : car, rating : rate})}/>
                         </Link>
                     ))
                 }
