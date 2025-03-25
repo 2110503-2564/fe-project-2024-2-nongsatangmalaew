@@ -15,7 +15,7 @@ export interface ReservationItem {
 
 export interface CarItem {
   _id: string,
-  name: string,
+  model: string,
   address: string,
   district: string,
   province: string,
