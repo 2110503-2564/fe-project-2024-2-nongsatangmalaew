@@ -24,6 +24,7 @@ export default async function Car() {
       <h1 className="text-xl font-medium">TRY Client-dise Car Panel</h1>
       <CardPanel /> */}
       {
+
         (profile.data.role == "admin") ?
           <Link href={'/car/manage'} >
             <button className="bg-black text-white border border-blue-900
