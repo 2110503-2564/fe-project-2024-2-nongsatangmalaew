@@ -7,30 +7,34 @@ import { Link } from "@mui/material";
 
 export default async function TopMenu() {
   const session = await getServerSession(authOptions);
-
+  console.log(session)
   return (
     <div className={styles.menucontainer}>
-    <Image
-      src={"/img/logo.png"}
-      className={styles.logoimg}
-      alt="logo"
-      width={0}
-      height={0}
-      sizes="100vh"
-    />
+      <Image
+        src={"/img/logo.png"}
+        className={styles.logoimg}
+        alt="logo"
+        width={0}
+        height={0}
+        sizes="100vh"
+      />
 
       <TopMenuItem title="Select Car" pageRef="/car" />
       <TopMenuItem title="Home" pageRef="/" />
 
 
 
-      
+
       <div className="flex flex-row absolute right-0 h-full">
-        <TopMenuItem title="Cart" pageRef="/cart" />
+        <div className="flex items-center ml-auto">
+          {session ? <TopMenuItem title={session.user.role === "admin" ? 'Bookings' : 'My Bookings'} pageRef='/mybooking' /> : null}
+          <TopMenuItem title='Select Car' pageRef='/car' />
+        </div>
+        <TopMenuItem title='Cart' pageRef='/cart' />
         {session ? (
           <Link href="/api/auth/signout">
             <div className="flex items-center h-full px-2 text-cyan-600 text-sm">
-              Sign-Out of {session.user?.name}
+              Sign-Out {session.user?.name}
             </div>
           </Link>
         ) : (
