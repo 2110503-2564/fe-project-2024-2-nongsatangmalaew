@@ -69,10 +69,6 @@ export default function Booking() {
             <div className="text-xl font-medium">Car {model}</div>
 
             <div className="text-md text-left text-gray-600">Edit the date and car that you reserved.</div>
-            <div><h2>Provider</h2></div>
-                        <div>
-                            <ProviderReserve onProviderChange={(value:string) => {setProvider(value)}}/>
-                        </div>
                         <div><h2>Departure Date and Location</h2></div>
                         <div>
                              <DateReserve onDateChange={(value:Dayjs) => {setPickupDate(value)}} onLocationChange={(value:string) => {setPickupLocation(value)}}/>

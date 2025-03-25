@@ -19,6 +19,10 @@ const providerInfo: Record<string, { address: string; tel: string }> = {
     address: "333/20 ถนนยามาล ตำบลเรโพ อำเภออีโก้ สมุทรปราการ 10270",
     tel: "0777777777",
   },
+  "Mokunato": {
+    address: "420/42 ถนนสายปัญญา ตำบลตัวตึง อำเภอเมือง ปทุมธานี 12110",
+    tel: "0889240723",
+  }
 };
 
 export default function ReservationCart() {
