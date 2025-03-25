@@ -3,9 +3,9 @@ import Card from "./Card";
 import { CarItem, CarsJson } from "../../interface";
 
 
-export default async function CarCatalog({carsJson}: {carsJson:CarsJson}) {
+export default  function CarCatalog({carsJson}: {carsJson:CarsJson}) {
 
-    const carsJsonReady = await carsJson;
+    const carsJsonReady =  carsJson;
     return (
         <>
         <h1>Select Your Car In Our Catalog JJJJ</h1>
