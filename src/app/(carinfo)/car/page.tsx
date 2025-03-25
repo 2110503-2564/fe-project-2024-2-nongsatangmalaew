@@ -6,6 +6,7 @@ import CarCatalog from "@/components/CarCatalog";
 
 export default async function Car() {
   const carsPromise = await getCars();
+  console.log(carsPromise)
   return (
     <main className="text-center p-10">
       <h1 className="text-3xl font-medium">Select your car</h1>
