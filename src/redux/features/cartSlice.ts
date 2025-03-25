@@ -56,7 +56,6 @@ export const cartSlice = createSlice({
         console.warn("editBooking: Booking not found!", oldItem);
       
 
-
       }
     }
   }
