@@ -3,5 +3,5 @@ export default function ManageBookingLayout({ children }: { children: React.Reac
         <div className="flex flex-col w-full">
             {children}
         </div>
-    );
+    )
 }
