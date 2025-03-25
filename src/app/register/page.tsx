@@ -29,7 +29,7 @@ export default function RegisterForm() {
     e.preventDefault();
     setMessage("");
 
-    const res = await fetch(`${process.env.BACKEND_URL}/api/v1/auth/register`, {
+    const res = await fetch("https://backend-for-fe-project.vercel.app/api/v1/auth/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),
