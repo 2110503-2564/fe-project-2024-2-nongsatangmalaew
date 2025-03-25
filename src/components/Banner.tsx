@@ -47,7 +47,7 @@ export default function Banner() {
       <button className='bg-white text-blue-900 border border-blue-900
       font-semibold py-2 px-2 m-5 rounded z-30 absolute bottom-0 right-0 
       hover:bg-blue-900 hover:text-white hover:boder-transparent' onClick={(e) => { e.stopPropagation(); router.push('/car') }}>
-        Select Your Car
+        Select Your Car@@
       </button>
     </div>
   );
