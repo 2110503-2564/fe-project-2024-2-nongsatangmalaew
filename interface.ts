@@ -89,3 +89,9 @@ export interface UserJson {
   count: number,
   data: User
 }
+
+interface LayoutProps {
+  children?: React.ReactNode;
+  dashboard?: React.ReactNode;
+  manage?: React.ReactNode;
+}
