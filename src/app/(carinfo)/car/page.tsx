@@ -16,5 +16,7 @@ export default async function Car() {
       <h1 className="text-xl font-medium">TRY Client-dise Car Panel</h1>
       <CardPanel /> */}
     </main>
+  
+
   );
 }
