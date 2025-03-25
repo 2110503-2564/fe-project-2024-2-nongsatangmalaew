@@ -61,6 +61,7 @@ export default function CardPanel() {
                         key={carName} 
                         data-testid={carName} 
                         onClick={() => dispatchCompare({ type: "remove", carName })}
+                    
                     >
                         {carName} Rating: {rating}
                     </div>
