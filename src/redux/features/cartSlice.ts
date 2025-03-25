@@ -19,6 +19,7 @@ export const cartSlice = createSlice({
         alert("Hey! You can only add up to 3 cars to the cart.");
       }
     },
+
     removeReservation: (state, action: PayloadAction<ReservationItem>) => {
       const remainItems = state.carItems.filter(obj => {
         return (
