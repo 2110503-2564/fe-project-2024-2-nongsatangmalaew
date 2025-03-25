@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ReservationItem } from '../../../interface';
+import { BookingItem } from '../../../interface';
 import dayjs from 'dayjs';  // Import dayjs for date calculations
 
 type CartState = {
-  carItems: ReservationItem[];
+  carItems: BookingItem[];
 };
 
 const initialState: CartState = { carItems: [] };
@@ -12,7 +12,7 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addReservation: (state, action: PayloadAction<ReservationItem>) => {
+    addBooking: (state, action: PayloadAction<BookingItem>) => {
       if (state.carItems.length < 3) {
         state.carItems.push(action.payload);
       } else {
@@ -20,7 +20,7 @@ export const cartSlice = createSlice({
       }
     },
 
-    removeReservation: (state, action: PayloadAction<ReservationItem>) => {
+    removeBooking: (state, action: PayloadAction<BookingItem>) => {
       const remainItems = state.carItems.filter(obj => {
         return (
           obj.carModel !== action.payload.carModel ||
@@ -30,7 +30,7 @@ export const cartSlice = createSlice({
       });
       state.carItems = remainItems;
     },
-    editReservation: (state, action: PayloadAction<{ oldItem: ReservationItem; newItem: Partial<ReservationItem> }>) => {
+    editBooking: (state, action: PayloadAction<{ oldItem: BookingItem; newItem: Partial<BookingItem> }>) => {
       const { oldItem, newItem } = action.payload;
 
       const existingItem = state.carItems.find(obj =>
@@ -53,11 +53,11 @@ export const cartSlice = createSlice({
         }
         
       } else {
-        console.warn("editReservation: Reservation not found!", oldItem);
+        console.warn("editBooking: Booking not found!", oldItem);
       }
     }
   }
 });
 
-export const { addReservation, removeReservation, editReservation } = cartSlice.actions;
+export const { addBooking, removeBooking, editBooking } = cartSlice.actions;
 export default cartSlice.reducer;

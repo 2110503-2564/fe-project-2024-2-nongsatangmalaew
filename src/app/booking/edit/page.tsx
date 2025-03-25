@@ -5,9 +5,9 @@ import TextField from '@mui/material/TextField';
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
-import { ReservationItem } from "../../../../interface";
+import { BookingItem } from "../../../../interface";
 import dayjs, { Dayjs } from "dayjs";
-import { editReservation as editReservationAction } from "@/redux/features/cartSlice"; // Renamed import
+import { editBooking as editBookingAction } from "@/redux/features/cartSlice"; // Renamed import
 import { useSearchParams } from "next/navigation";
 import ProviderReserve from "@/components/ProviderReserve";
 
@@ -24,7 +24,7 @@ export default function Booking() {
     const [returnLocation, setReturnLocation] = useState<string>("Bangkok");
 
     // ✅ Rename function to avoid conflict
-    const handleEditReservation = () => {
+    const handleEditBooking = () => {
         console.log("cid:", cid);
         console.log("model:", model);
         console.log("pickupDate:", pickupDate);
@@ -39,7 +39,7 @@ export default function Booking() {
         const formattedReturnDate = dayjs(returnDate).format("YYYY/MM/DD");
         const duration = dayjs(returnDate).diff(dayjs(pickupDate), 'day');
     
-        const oldItem: ReservationItem = {
+        const oldItem: BookingItem = {
             carId: cid,
             carModel: model,
             numOfDays: duration,
@@ -47,25 +47,24 @@ export default function Booking() {
             pickupLocation,
             returnDate: formattedReturnDate,
             returnLocation,
-            pickupProvider
         };
     
-        const newItem: Partial<ReservationItem> = {
+        const newItem: Partial<BookingItem> = {
             pickupDate: formattedPickupDate,
             returnDate: formattedReturnDate,
             pickupLocation,
             returnLocation
         };
     
-        dispatch(editReservationAction({ oldItem, newItem }));
+        dispatch(editBookingAction({ oldItem, newItem }));
     
-        alert("Reservation updated successfully!"); // Feedback
+        alert("Booking updated successfully!"); // Feedback
     };
     
 
     return (
         <main className="w-[100%] flex flex-col items-center space-y-4">
-            <div className="text-xl font-medium">Edit Reservation</div>
+            <div className="text-xl font-medium">Edit Booking</div>
             <div className="text-xl font-medium">Car {model}</div>
 
             <div className="text-md text-left text-gray-600">Edit the date and car that you reserved.</div>
@@ -81,7 +80,7 @@ export default function Booking() {
             <button
                 name="Book Car"
                 className="block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2 text-white shadow-sm"
-                onClick={handleEditReservation} // ✅ Use the fixed function
+                onClick={handleEditBooking} // ✅ Use the fixed function
             >
                 Edit reservation of this car
             </button>

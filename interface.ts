@@ -22,7 +22,9 @@ export interface ReservationJson {
 
 export interface CarItem {
   _id: string,
-  name: string,
+
+  name:string,
+  model: string,
   address: string,
   district: string,
   province: string,
@@ -46,4 +48,44 @@ export interface CarsJson {
 //   tel: string;
 //   car: string;
 //   bookDate: string;
+
 // }
+export interface BookingItem {
+  _id?: string
+  carId: string
+  carModel: string
+  numOfDays: number
+  pickupDate: string
+  pickupLocation: string
+  returnDate: string
+  returnLocation: string
+  user?: string
+  car?: CarItem
+}
+
+export interface BookingJson {
+  success: boolean,
+  count: number,
+  data: BookingItem[]
+}
+export interface BookingJson1 {
+  success: boolean,
+  count: number,
+  data: BookingItem
+}
+
+
+export interface User {
+  _id: string
+  name: string
+  tel: string
+  email: string
+  address: string
+  role: string
+}
+
+export interface UserJson {
+  success: boolean,
+  count: number,
+  data: User
+}
